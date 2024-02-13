@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="assets/img/logos/logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link href="assets/css/styles.css" rel="stylesheet"> -->
+    <link href="assets/css/styles-rtl.css" rel="stylesheet">
+</head>
+
+<style>
+
+.form {
+  width: 480px;
+  margin: 20px 0;
+}
+
+.group {
+  background: white;
+  box-shadow: 0 7px 14px 0 #2d2d2d1b, 0 3px 6px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+label {
+  position: relative;
+  color: #195d4faf;
+  font-weight: 300;
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+.group label:not(:last-child) {
+  border-bottom: 1px solid #F0F5FA;
+}
+
+label > span {
+  width: 120px;
+  text-align: right;
+  margin-right: 30px;
+}
+
+.field {
+  background: transparent;
+  font-weight: 300;
+  border: 0;
+  color: rgba(34, 34, 35, 0.583);
+  outline: none;
+  flex: 1;
+  padding-right: 10px;
+  padding-left: 10px;
+  cursor: text;
+}
+
+.field::-webkit-input-placeholder {
+  color: #CFD7E0;
+}
+
+.field::-moz-placeholder {
+  color: #CFD7E0;
+}
+
+button {
+  float: left;
+  display: block;
+  background: #195d4f;
+  color: white;
+  box-shadow: 0 7px 14px 0 rgba(49, 49, 93, 0.10), 0 3px 6px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  border: 0;
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 400;
+  width: 100%;
+  height: 40px;
+  line-height: 38px;
+  outline: none;
+}
+
+button:focus {
+  background: #153730;
+}
+
+button:active {
+  background: #153730;
+}
+
+.outcome {
+  float: left;
+  width: 100%;
+  padding-top: 8px;
+  min-height: 24px;
+  text-align: center;
+}
+
+.success,
+.error {
+  display: none;
+  font-size: 13px;
+}
+
+.success.visible,
+.error.visible {
+  display: inline;
+}
+
+.error {
+  color: #E4584C;
+}
+
+.success {
+  color: #153730;
+}
+
+.success .token {
+  font-weight: 500;
+  font-size: 13px;
+}
+</style>
+<body>
+
+    <div class="main-wrapper">
+        <!-- HEADER
+        ================================================== -->
+        <header class="header-style1 menu_area-light">
+            <div class="navbar-default border-bottom border-color-light-white">
+                <div class="container-fluid px-sm-2-9">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-lg-12">
+                            <div class="menu_area alt-font">
+                                <nav class="navbar navbar-expand-lg navbar-light p-0">
+
+                                    <div class="navbar-header navbar-header-custom">
+                                        <!-- start logo -->
+                                        <a href="index.html" class="navbar-brand logodefault">
+                                            <img id="logo" src="assets/img/logos/logo.png" alt="logo"></a>
+                                        <!-- end logo -->
+                                    </div>
+
+                                    <div class="navbar-toggler"></div>
+
+                                    <!-- menu area -->
+                                    <ul class="navbar-nav align-items-lg-center ms-auto" id="nav">
+                                        <li><a href="index.html">الرئيسية</a></li>
+                                        <li><a href="about.html">من</a></li>
+                                        <li><a href="services.html">خدماتنا</a>
+                                            <ul>
+                                                <li><a href="services.html">بحوث التسويق</a></li>
+                                                <li><a href="services.html">تحليل الأعمال</a></li>
+                                                <li><a href="services.html">الخطة الاستثمارية</a></li>
+                                                <li><a href="services.html">ادخار الاستثمارات</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="portfolio.html">اعمالنا</a></li>
+                                        <li><a href="blog.html">المقالات</a></li>
+                                        <li><a href="contact.html">تواصل معنا</a></li>
+                                    </ul>
+                                    <!-- end menu area -->
+                                    <!-- start attribute navigation -->
+                                    <div class="attr-nav align-items-lg-center ms-lg-auto">
+                                        <ul>
+                                            <li class="lang">
+                                                <a href="#"><i class="fas fa-globe"></i> EN</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- end attribute navigation -->
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+        <section class="page-title-section2 top-position1 bg-img cover-background text-start left-overlay-dark" data-overlay-dark="7" data-background="assets/img/my_imegs/depositphotos_66997573-stock-photo-online-booking-concept.jpg">
+            <div class="container">
+
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-lg-7 col-xxl-5">
+                        <div class="title-style3">
+                            <span>Payment online</span>
+                        </div>
+                        <h1 class="text-white mb-0 text-shadow-large">الدفع الالكتروني</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <div class="d-flex justify-content-center mx-2">
+        <form action="//httpbin.org/post" method="POST" class="form">
+            <input type="hidden" name="token" />
+            <div class="group">
+              <label>
+                <span>بطاقة الدفع</span>
+                <div id="card-element" class="field"></div>
+              </label>
+            </div>
+            <div class="group">
+              <label>
+                <span>الاسم الاول </span>
+                <input id="first-name" name="first-name" class="field" placeholder="اسمك" />
+              </label>
+              <label>
+                <span>الاسم الاخير</span>
+                <input id="last-name" name="last-name" class="field" placeholder="اسم العائلة" />
+              </label>
+            </div>
+            <div class="group">
+                <label>
+                    <span>الهاتف</span>
+                    <input id="phone" name="phone" type="number" class="field" placeholder="رقم الهاتف" />
+                  </label>
+                <label>
+                <span>العنوان</span>
+                <input id="address-line1" name="address_line1" class="field" placeholder=" اكتب العنوان بتفاصيل " />
+                </label>
+             
+                <label>
+                    <span>المدينة</span>
+                    <input id="address-city" name="address_city" class="field" placeholder="اسم مدينتك" />
+                </label>
+              
+            </div>
+            <button type="submit"><span class="total pe-1">$25</span>دفع</button>
+            <div class="outcome">
+              <div class="error"></div>
+              <div class="success">
+                Success! Your Stripe token is <span class="token"></span>
+              </div>
+            </div>
+          </form>
+    </div>
+    <footer class="footer-style1 bg-dark">
+
+      <div class="container">
+          <div class="row">
+
+              <div class="col-lg-4 mb-1-9 mb-lg-0 wow fadeIn" data-wow-delay="200ms">
+                  <img src="assets/img/logos/logo1.png" class="mb-4" alt="..." />
+                  <p class="mb-1-9 text-white w-xxl-85">
+                      نحن نساعدك على تطوير مشروعك التجاري المزدهر.</p>
+                  <div class="social-icons2">
+                      <ul class="ps-0 mb-0">
+                          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                          <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-8">
+                  <div class="row">
+                      <div class="col-12 mb-1-9 pb-4 border-bottom border-color-light-white wow fadeIn"
+                          data-wow-delay="300ms">
+                          <div class="row">
+                              <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                                  <div class="d-flex">
+                                      <div class="flex-shrink-0">
+                                          <i class="ti-mobile display-20 text-secondary"></i>
+                                      </div>
+                                      <div class="flex-grow-1 ms-3">
+                                          <h4 class="h5 text-white mb-1">الهاتف</h4>
+                                          <p class="mb-0 text-white opacity8 small">01285436716</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                                  <div class="d-flex">
+                                      <div class="flex-shrink-0">
+                                          <i class="ti-email display-20 text-secondary"></i>
+                                      </div>
+                                      <div class="flex-grow-1 ms-3">
+                                          <h4 class="h5 text-white mb-1">البريد الالكتروني</h4>
+                                          <p class="mb-0 text-white opacity8 small">mohamed85@gmail.com</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-6 col-lg-4">
+                                  <div class="d-flex">
+                                      <div class="flex-shrink-0">
+                                          <i class="ti-map-alt display-20 text-secondary"></i>
+                                      </div>
+                                      <div class="flex-grow-1 ms-3">
+                                          <h4 class="h5 text-white mb-1">العنوان</h4>
+                                          <p class="mb-0 text-white opacity8 small">مصر - القاهرة</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-6 col-lg-4 mb-1-9 mb-lg-0 wow fadeIn" data-wow-delay="400ms">
+                          <h3>عن الشركة</h3>
+                          <ul class="ps-0 mb-0">
+                              <li><a href="services.html">خدماتنا</a></li>
+                              <li><a href="contact.html">تواصل معنا</a></li>
+                          </ul>
+                      </div>
+                      <div class="col-sm-6 col-lg-4 mb-1-9 mb-lg-0 wow fadeIn" data-wow-delay="500ms">
+                          <h3>روابط سريعة</h3>
+                          <ul class="ps-0 mb-0">
+                              <li><a href="portfolio.html">اعمالنا</a></li>
+                              <li><a href="blog.html">المقالات</a></li>
+                              <li><a href="about.html">من نحن</a></li>
+                          </ul>
+                      </div>
+                      <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="600ms">
+                          <h3>القائمة البريدية</h3>
+                          <form class="quform" action="quform/newsletter-two.php" method="post"
+                              enctype="multipart/form-data" onsubmit="validateEmail(event)">
+
+                              <div class="quform-elements">
+
+                                  <div class="row">
+                                      <!-- Begin Text input element -->
+                                      <div class="col-md-12">
+                                          <div class="quform-element mb-0">
+                                              <div class="quform-input">
+                                                  <input class="form-control" id="emailInput" type="text"
+                                                      name="email_address" placeholder="اشترك معنا" />
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <!-- End Text input element -->
+
+                                      <!-- Begin Submit button -->
+                                      <div class="col-md-12 mt-2">
+                                          <div class="quform-submit-inner">
+                                              <button class="butn-style1 m-0 w-100" type="submit">اشترك</button>
+                                          </div>
+
+                                      </div>
+                                      <!-- End Submit button -->
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+
+      </div>
+
+      <div class="footer-bar wow fadeIn" data-wow-delay="200ms">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12 text-center">
+                      <p>&copy; <span class="current-year"></span> تم التصميم والتطوير بواسطة <a
+                              href="https://www.codlop.com/" class="text-secondary text-primary-hover">Codlop</a>
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </footer>
+    </div>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        var stripe = Stripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+var elements = stripe.elements();
+
+var card = elements.create('card', {
+  hidePostalCode: true,
+  style: {
+    base: {
+      iconColor: '#666EE8',
+      color: '#31325F',
+      lineHeight: '40px',
+      fontWeight: 300,
+      fontSize: '15px',
+
+      '::placeholder': {
+        color: '#CFD7E0',
+      },
+    },
+  }
+});
+card.mount('#card-element');
+
+function setOutcome(result) {
+  var successElement = document.querySelector('.success');
+  var errorElement = document.querySelector('.error');
+  successElement.classList.remove('visible');
+  errorElement.classList.remove('visible');
+
+  if (result.token) {
+    // In this example, we're simply displaying the token
+    successElement.querySelector('.token').textContent = result.token.id;
+    successElement.classList.add('visible');
+
+    // In a real integration, you'd submit the form with the token to your backend server
+    //var form = document.querySelector('form');
+    //form.querySelector('input[name="token"]').setAttribute('value', result.token.id);
+    //form.submit();
+  } else if (result.error) {
+    errorElement.textContent = result.error.message;
+    errorElement.classList.add('visible');
+  }
+}
+
+card.on('change', function(event) {
+  setOutcome(event);
+});
+
+document.querySelector('form').addEventListener('submit', function(e) {
+  let first_name=document.getElementById('first-name').value;
+  let last_name=document.getElementById('last-name').value;
+  let address=document.getElementById('address-line1').value;
+  let city=document.getElementById('address-city').value;
+  let phone= document.getElementById('phone').value;
+
+  e.preventDefault();
+  if (first_name.trim() === "" || last_name.trim() === "" || address.trim() === ""|| city.trim() === ""|| phone.trim() === "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'رجاء',
+            text: 'يرجى ملء جميع الحقول المطلوبة',
+            confirmButtonText: 'حسنًا',
+            customClass: {
+                confirmButton: 'custom-swal-btn'
+            }
+        });
+        return false; // Stop form submission
+  }else{
+    Swal.fire({
+            icon: 'success',
+            title: 'تم الدفع',
+            text: 'تم الدفع بنجاح ',
+            confirmButtonText: 'حسنًا',
+            customClass: {
+                confirmButton: 'custom-swal-btn'
+            }
+        });
+  }
+  
+});
+    </script>
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/popper.min.js"></script>
+      <script src="assets/js/bootstrap.min.js"></script>
+      <script src="assets/js/core.min.js"></script>
+      <script src="assets/js/main.js"></script>
+      <script src="assets/js/plugins.js"></script>
+      <script src="assets/js/scripts.js"></script>
+  </body>
+</html>

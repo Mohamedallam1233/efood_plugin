@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="تطوير عقاري">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>صفحة الشكاوى</title>
+    <link rel="shortcut icon" href="assets/img/logos/logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link href="assets/css/styles.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="assets/css/styles-rtl.css" rel="stylesheet">
+    <link href="css/bootstrap-rtl.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- PAGE LOADING
+    ================================================== -->
+    <div id="preloader"></div>
+    <!-- MAIN WRAPPER
+    ================================================== -->
+    <div class="main-wrapper">
+        <!-- HEADER
+        ================================================== -->
+        <header class="header-style1 menu_area-light">
+            <div class="navbar-default border-bottom border-color-light-white">
+                <div class="container-fluid px-sm-2-9">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-lg-12">
+                            <div class="menu_area alt-font">
+                                <nav class="navbar navbar-expand-lg navbar-light p-0">
+
+                                    <div class="navbar-header navbar-header-custom">
+                                        <!-- start logo -->
+                                        <a href="index.html" class="navbar-brand logodefault">
+                                            <img id="logo" src="assets/img/logos/logo1.png" alt="logo"></a>
+                                        <!-- end logo -->
+                                    </div>
+
+                                    <div class="navbar-toggler"></div>
+
+                                    <!-- menu area -->
+                                    <ul class="navbar-nav align-items-lg-center ms-auto" id="nav" dir="rtl">
+                                        <li><a href="./restaurant_home.html">الرئيسية</a></li>
+                                        <li><a href="./menu.html"> المنيو</a></li>
+                                        <li><a href="./reser.html">الحجز</a></li>
+                                        <li><a href="./com.html">الشكاوي</a></li>
+                                        <li><a href="./edit.html">تعديل الطلب</a></li>
+                                    </ul>
+                                    <!-- end menu area -->
+                                    <!-- start attribute navigation -->
+                                    <div class="attr-nav align-items-lg-center ms-lg-auto">
+                                        <ul>
+                                            <li class="lang">
+                                                <a href="#" id="noti" data="0"><i
+                                                        class="fa-solid fa-cart-shopping fa-shake fs-5 "
+                                                        onclick="cart_open()" style="color: #e7c588;"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- end attribute navigation -->
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+        <!-- PAGE TITLE
+        ================================================== -->
+        <section class="page-title-section2 top-position1 bg-img cover-background text-start left-overlay-dark" data-overlay-dark="7" data-background="assets/img/my_imegs/msi-ty-header-bg.jpg">
+            <div class="container">
+
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-lg-7 col-xxl-5">
+                        <div class="title-style3">
+                            <span>Modify the order</span>
+                        </div>
+                        <h1 class="text-white mb-0 text-shadow-large">تعديل الطلب</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- reservation
+        ================================================== -->
+        <section class="section-content padding-y">
+            <div class="container">
+                <div class="timer">
+                    <div class="text-center d-flex justify-content-center mx-3 mb-1 align-items-center ">
+                        <div style="background-color: #153730;" class="m-2 rounded">
+                         <span id="clock" class="px-2 fs-4 fw-bold " style="color: white;">00:00:01</span>
+                        </div>
+                         <span class=" fs-5 fw-bold">الوقت الخاص بي الطلب</span>
+                       </div>
+                       <div class="text-center">
+                         <i class="fa-solid fa-arrow-down-long fs-2 " style="background: linear-gradient(90deg, #ffc432 0%, rgb(186, 175, 139) 17%, #22a877);
+                         -webkit-background-clip: text;
+                         color: transparent;"></i>
+                       </div>
+                       <div class="text-center d-flex justify-content-center mx-3 mt-1 align-items-center ">
+                         <div style="background-color: #153730;" class="m-2 rounded">
+                             <span id="del_clock" class="px-2 fs-4 fw-bold" style="color: white;">00:00:01</span>
+                         </div>
+                         <span class=" fs-4 fw-bold">الوقت الخاص بي الدليفري</span>
+                       </div>
+                </div>
+                <div class="text_timer text-center fs-5 mb-2">سيصلك الطلب قريبا</div>
+            <div class="row">
+                <main class="col-md-9">
+            <div class="card">
+            
+           
+                <div class=" row p-2">
+                    <figure class="itemside col-md-5 col-12 row d-flex align-items-center">
+                        <div class="aside col-md-3 col-6"><img src="images/items/1.jpg" class="img-sm"></div>
+                        <div class="info col-md-9 col-6 mt-1">
+                            <p class="title text-dark p-0 m-0">Some name of item goes here nice</p>
+                            <p class="title p-0 m-0" style="color: rgba(128, 128, 128, 0.576);">Description</p>
+                        </div>
+                    </figure>
+                
+                    
+                    <div class="row d-flex align-items-center col-md-7">
+                        <div class="d-flex justify-content-start align-items-center  col-5 p-0 m-0 mb-2 px-2"> 
+                        
+                            <i class="fa-regular fa-square-minus pe-1 fs-3 " onclick="change2totle_check(this)" style="color: #e7c688;"></i>
+                             <input type="number" name="quantity" onkeyup='change3totle(this)' min ="1" dir="rtl" class="input-number p-2 rounded-3 input-quantity"
+                             id="30"  value='1' style="border:1px solid rgba(128, 128, 128, 0.525);width:5rem"> 
+                             <i class="fa-regular fa-square-plus ps-1 fs-3" onclick="changetotle_check(this)" style="color: #e7c688;"></i>
+                   
+                        </div>
+                        <div class="col-4"> 
+                            <div class="price-wrap text-center"> 
+                                <var class="price" id='30'>$30</var> 
+                            </div> <!-- price-wrap .// -->
+                        </div>
+                        <div class="text-right col-3"> 
+                        <a  class="btn btn-primary text-light" onclick="delete_pro_check(this)">حذف</a>
+                        </div>
+                    </div>
+                </div>
+                <div class=" row p-2">
+                    <figure class="itemside col-md-5 col-12 row d-flex align-items-center">
+                        <div class="aside col-md-3 col-6"><img src="images/items/1.jpg" class="img-sm"></div>
+                        <div class="info col-md-9 col-6 mt-1">
+                            <p class="title text-dark p-0 m-0">Some name of item goes here nice</p>
+                            <p class="title p-0 m-0" style="color: rgba(128, 128, 128, 0.576);">Description</p>
+                        </div>
+                    </figure>
+                
+                    
+                    <div class="row d-flex align-items-center col-md-7">
+                        <div class="d-flex justify-content-start align-items-center  col-5 p-0 m-0 mb-2 px-2"> 
+                        
+                            <i class="fa-regular fa-square-minus pe-1 fs-3 " onclick="change2totle_check(this)" style="color: #e7c688;"></i>
+                             <input type="number" name="quantity" onkeyup='change3totle(this)' min ="1" dir="rtl" class="input-number p-2 rounded-3 input-quantity"
+                             id="60"  value='1' style="border:1px solid rgba(128, 128, 128, 0.525);width:5rem"> 
+                             <i class="fa-regular fa-square-plus ps-1 fs-3" onclick="changetotle_check(this)" style="color: #e7c688;"></i>
+                   
+                        </div>
+                        <div class="col-4"> 
+                            <div class="price-wrap text-center"> 
+                                <var class="price" id='60'>$60</var> 
+                            </div> <!-- price-wrap .// -->
+                        </div>
+                        <div class="text-right col-3"> 
+                        <a  class="btn btn-primary text-light" onclick="delete_pro_check(this)">حذف</a>
+                        </div>
+                    </div>
+                </div>
+            
+            
+            
+            <div class="card-body border-top d-flex justify-content-between">
+                <a href="./visa.html" class="btn btn-primary"> <i class="fa fa-chevron-right"></i>اتجه الي الدفع الالكتروني  </a>
+                <a href="#" class="btn btn-light">اتجه الي الدفع عند الاستلام<i class="fa fa-chevron-left"></i></a>
+            </div>	
+            </div> <!-- card.// -->
+            
+            <div class="alert alert-success mt-3">
+                <p class="icontext"><i class="icon text-success fa fa-truck"></i>
+                    توصيل مجاني  لمدة اسبوعين </p>
+            </div>
+            
+              </main> <!-- col.// -->
+                <aside class="col-md-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label>معك كوبون</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control"  id="couponInput"  name="" placeholder="كود الكوبون">
+                                    <span class="input-group-append"> 
+                                        <p class="btn btn-primary btn-copon m-0"  onclick="coponvalid(this)" >تفعيل</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                        </div> <!-- card-body.// -->
+                    </div>  <!-- card .// -->
+                    <div class="card p-2">
+                        <div>
+                                <dl class="dlist-align">
+                                  <dt>الحساب الكلي:</dt>
+                                  <dd class="text-right"><span class="total_checkout">0</span></dd>
+                                </dl>
+                                <dl class="dlist-align">
+                                  <dt>الخصم:</dt>
+                                  <dd class="text-right copon_total"> 0  </dd>
+                                </dl>
+                                <dl class="dlist-align">
+                                  <dt>الحساب بعد الخصم:</dt>
+                                  <dd class="text-right  h5"><strong class="after_copon"></strong></dd>
+                                </dl>
+                                <hr>
+                                <p class="text-center mb-3 w-100 h-25">
+                                    <img src="images/misc/payments.png" height="26">
+                                </p>
+                                
+                        </div> <!-- card-body.// -->
+                    </div>  <!-- card .// -->
+                </aside> <!-- col.// -->
+            </div>
+            
+            </div> <!-- container .//  -->
+            </section>
+
+
+        <!-- COUNTER
+        ================================================== -->
+        
+
+        <!-- EXTRA
+        ================================================== -->
+        
+
+       <!-- FOOTER
+        ================================================== -->
+        <footer class="footer-style1 bg-dark">
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-4 mb-1-9 mb-lg-0 wow fadeIn" data-wow-delay="200ms">
+                        <img src="assets/img/logos/logo1.png" class="mb-4" alt="..." />
+                        <p class="mb-1-9 text-white w-xxl-85">
+                            نحن نساعدك على تطوير مشروعك التجاري المزدهر.</p>
+                        <div class="social-icons2">
+                            <ul class="ps-0 mb-0">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-12 mb-1-9 pb-4 border-bottom border-color-light-white wow fadeIn"
+                                data-wow-delay="300ms">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <i class="ti-mobile display-20 text-secondary"></i>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <h4 class="h5 text-white mb-1">الهاتف</h4>
+                                                <p class="mb-0 text-white opacity8 small">01285436716</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <i class="ti-email display-20 text-secondary"></i>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <h4 class="h5 text-white mb-1">البريد الالكتروني</h4>
+                                                <p class="mb-0 text-white opacity8 small">mohamed85@gmail.com</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <i class="ti-map-alt display-20 text-secondary"></i>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <h4 class="h5 text-white mb-1">العنوان</h4>
+                                                <p class="mb-0 text-white opacity8 small">مصر - القاهرة</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 mb-1-9 mb-lg-0 wow fadeIn" data-wow-delay="400ms">
+                                <h3>عن الشركة</h3>
+                                <ul class="ps-0 mb-0">
+                                    <li><a href="services.html">خدماتنا</a></li>
+                                    <li><a href="contact.html">تواصل معنا</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 mb-1-9 mb-lg-0 wow fadeIn" data-wow-delay="500ms">
+                                <h3>روابط سريعة</h3>
+                                <ul class="ps-0 mb-0">
+                                    <li><a href="portfolio.html">اعمالنا</a></li>
+                                    <li><a href="blog.html">المقالات</a></li>
+                                    <li><a href="about.html">من نحن</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="600ms">
+                                <h3>القائمة البريدية</h3>
+                                <form class="quform" action="quform/newsletter-two.php" method="post"
+                                    enctype="multipart/form-data" onsubmit="validateEmail(event)">
+
+                                    <div class="quform-elements">
+
+                                        <div class="row">
+                                            <!-- Begin Text input element -->
+                                            <div class="col-md-12">
+                                                <div class="quform-element mb-0">
+                                                    <div class="quform-input">
+                                                        <input class="form-control" id="emailInput" type="text"
+                                                            name="email_address" placeholder="اشترك معنا" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Text input element -->
+
+                                            <!-- Begin Submit button -->
+                                            <div class="col-md-12 mt-2">
+                                                <div class="quform-submit-inner">
+                                                    <button class="butn-style1 m-0 w-100" type="submit">اشترك</button>
+                                                </div>
+
+                                            </div>
+                                            <!-- End Submit button -->
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bar wow fadeIn" data-wow-delay="200ms">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <p>&copy; <span class="current-year"></span> تم التصميم والتطوير بواسطة <a
+                                    href="https://www.codlop.com/" class="text-secondary text-primary-hover">Codlop</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- SCROLL TO TOP
+    ================================================== -->
+    <a href="#" class="scroll-to-top"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
+
+    <!-- all js include start -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/core.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/checkout.js"></script>
+    <script src="assets/js/edit.js"></script>
+
+</body>
+
+</html>
+        
+        

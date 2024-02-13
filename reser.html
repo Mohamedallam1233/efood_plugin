@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="تطوير عقاري">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> صفحة الحجز</title>
+    <link rel="shortcut icon" href="assets/img/logos/logo1.png">
+    <!-- <link href="assets/css/styles.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link href="assets/css/styles-rtl.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- PAGE LOADING
+    ================================================== -->
+    <div id="preloader"></div>
+    <!-- MAIN WRAPPER
+    ================================================== -->
+    <div class="main-wrapper">
+        <!-- HEADER
+        ================================================== -->
+        <header class="header-style1 menu_area-light">
+            <div class="navbar-default border-bottom border-color-light-white">
+                <div class="container-fluid px-sm-2-9">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-lg-12">
+                            <div class="menu_area alt-font">
+                                <nav class="navbar navbar-expand-lg navbar-light p-0">
+
+                                    <div class="navbar-header navbar-header-custom">
+                                        <!-- start logo -->
+                                        <a href="index.html" class="navbar-brand logodefault">
+                                            <img id="logo" src="assets/img/logos/logo1.png" alt="logo"></a>
+                                        <!-- end logo -->
+                                    </div>
+
+                                    <div class="navbar-toggler"></div>
+
+                                    <!-- menu area -->
+                                    <ul class="navbar-nav align-items-lg-center ms-auto" id="nav" dir="rtl">
+                                        <li><a href="./restaurant_home.html">الرئيسية</a></li>
+                                        <li><a href="./menu.html"> المنيو</a></li>
+                                        <li><a href="./reser.html">الحجز</a></li>
+                                        <li><a href="./com.html">الشكاوي</a></li>
+                                        <li><a href="./edit.html">تعديل الطلب</a></li>
+                                    </ul>
+                                    <!-- end menu area -->
+                                    <!-- start attribute navigation -->
+                                    <div class="attr-nav align-items-lg-center ms-lg-auto">
+                                        <ul>
+                                            <li class="lang">
+                                                <a href="#" id="noti" data="0"><i
+                                                        class="fa-solid fa-cart-shopping fa-shake fs-5 "
+                                                        onclick="cart_open()" style="color: #e7c588;"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- end attribute navigation -->
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+        <!-- PAGE TITLE
+        ================================================== -->
+        <section class="page-title-section2 top-position1 bg-img cover-background text-start left-overlay-dark"
+            data-overlay-dark="7"
+            data-background="assets/img/my_imegs/msi-ty-header-bg.jpg">
+            <div class="container">
+
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-lg-7 col-xxl-5">
+                        <div class="title-style3">
+                            <span>Reservation</span>
+                        </div>
+                        <h1 class="text-white mb-0 text-shadow-large">الحجز</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- reservation
+        ================================================== -->
+        <section class="overflow-visible">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 wow fadeIn" data-wow-delay="400ms">
+                        <div class="primary-shadow bg-white p-1-6 p-sm-2-9 rounded z-index-9 position-relative">
+                            <h2 class="mb-1-9"> اترك لنا معلومات حجزك </h2>
+                            <form class="contact quform" action="quform/contact.php" method="post"
+                                enctype="multipart/form-data" onsubmit="return validateForm_resrvation(event);">
+                                <div class="quform-elements">
+                                    <div class="row">
+
+                                        <!-- Begin Text input element -->
+                                        <div class="col-md-6">
+                                            <div class="quform-element form-group">
+                                                <label for="name">اسمك بالكامل <span
+                                                        class="quform-required">*</span></label>
+                                                <div class="quform-input">
+                                                    <input class="form-control" id="name" type="text" name="name"
+                                                        placeholder="اكتب اسمك هنا" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Text input element -->
+
+                                        <!-- Begin Text input element -->
+                                        <div class="col-md-6">
+                                            <div class="quform-element form-group">
+                                                <label> التوقيت <span class="quform-required">*</span></label>
+                                                <div class="quform-input">
+                                                    <input class="form-control" id="time" type="time" name="email" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Text input element -->
+
+                                        <!-- Begin Text input element -->
+                                        <div class="col-md-6">
+                                            <div class="quform-element form-group">
+                                                <label for="subject">عدد الاشخاص<span
+                                                        class="quform-required">*</span></label>
+                                                <div class="quform-input">
+                                                    <input class="form-control" id="people" type="number" name="subject"
+                                                        placeholder="عدد الاشخاص" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Text input element -->
+
+                                        <!-- Begin Text input element -->
+                                        <div class="col-md-6">
+                                            <div class="quform-element form-group">
+                                                <label for="phone">رقم الهاتف</label>
+                                                <div class="quform-input">
+                                                    <input class="form-control" id="phone" type="text" name="phone"
+                                                        placeholder="اكتب رقمك هنا" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Text input element -->
+                                        <div class="col-md-6">
+                                            <div class="quform-element form-group">
+                                                <label for="phone">التاريخ</label>
+                                                <div class="quform-input">
+                                                    <input class="form-control" id="date" type="date" name="phone"
+                                                        placeholder="اكتب التاريخ هنا" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Text input element -->
+                                        <div class="d-flex align-items-center">
+                                            <input type="checkbox" id="CopunCheckbox" onchange="check_reservation(this)"/>
+                                            <label class="my-3 mx-1 fs-6"> حجز المكان بالكامل</label>
+                                            <span style="display: block;font-size: 10px;" class="pt-2">(سعة المكان 100شخص فقط)</span>
+
+                                        </div>
+
+
+                                        <!-- Begin Textarea element -->
+                                        <div class="col-md-12">
+                                            <div class="quform-element form-group">
+                                                <label for="message">الرسالة <span
+                                                        class="quform-required">*</span></label>
+                                                <div class="quform-input">
+                                                    <textarea class="form-control h-100" id="message" name="message"
+                                                        rows="3" placeholder="اكتب رسالتك هنا"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Textarea element -->
+                                        <!-- Begin Submit button -->
+                                        <div class="col-md-12">
+                                            <div class="quform-submit-inner">
+                                                <button class="butn-style1" type="submit"><span>ارسال</span></button>
+                                            </div>
+                                        </div>
+                                        <!-- End Submit button -->
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- COUNTER
+        ================================================== -->
+
+
+        <!-- EXTRA
+        ================================================== -->
+
+
+        <!-- FOOTER
+        ================================================== -->
+        <footer class="footer-style1 bg-dark">
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-4 mb-1-9 mb-lg-0 wow fadeIn" data-wow-delay="200ms">
+                        <img src="assets/img/logos/logo1.png" class="mb-4" alt="..." />
+                        <p class="mb-1-9 text-white w-xxl-85">
+                            نحن نساعدك على تطوير مشروعك التجاري المزدهر.</p>
+                        <div class="social-icons2">
+                            <ul class="ps-0 mb-0">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-12 mb-1-9 pb-4 border-bottom border-color-light-white wow fadeIn"
+                                data-wow-delay="300ms">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <i class="ti-mobile display-20 text-secondary"></i>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <h4 class="h5 text-white mb-1">الهاتف</h4>
+                                                <p class="mb-0 text-white opacity8 small">01285436716</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <i class="ti-email display-20 text-secondary"></i>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <h4 class="h5 text-white mb-1">البريد الالكتروني</h4>
+                                                <p class="mb-0 text-white opacity8 small">mohamed85@gmail.com</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <i class="ti-map-alt display-20 text-secondary"></i>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <h4 class="h5 text-white mb-1">العنوان</h4>
+                                                <p class="mb-0 text-white opacity8 small">مصر - القاهرة</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 mb-1-9 mb-lg-0 wow fadeIn" data-wow-delay="400ms">
+                                <h3>عن الشركة</h3>
+                                <ul class="ps-0 mb-0">
+                                    <li><a href="services.html">خدماتنا</a></li>
+                                    <li><a href="contact.html">تواصل معنا</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 mb-1-9 mb-lg-0 wow fadeIn" data-wow-delay="500ms">
+                                <h3>روابط سريعة</h3>
+                                <ul class="ps-0 mb-0">
+                                    <li><a href="portfolio.html">اعمالنا</a></li>
+                                    <li><a href="blog.html">المقالات</a></li>
+                                    <li><a href="about.html">من نحن</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="600ms">
+                                <h3>القائمة البريدية</h3>
+                                <form class="quform" action="quform/newsletter-two.php" method="post"
+                                    enctype="multipart/form-data" onsubmit="validateEmail(event)">
+
+                                    <div class="quform-elements">
+
+                                        <div class="row">
+                                            <!-- Begin Text input element -->
+                                            <div class="col-md-12">
+                                                <div class="quform-element mb-0">
+                                                    <div class="quform-input">
+                                                        <input class="form-control" id="emailInput" type="text"
+                                                            name="email_address" placeholder="اشترك معنا" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Text input element -->
+
+                                            <!-- Begin Submit button -->
+                                            <div class="col-md-12 mt-2">
+                                                <div class="quform-submit-inner">
+                                                    <button class="butn-style1 m-0 w-100" type="submit">اشترك</button>
+                                                </div>
+
+                                            </div>
+                                            <!-- End Submit button -->
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bar wow fadeIn" data-wow-delay="200ms">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <p>&copy; <span class="current-year"></span> تم التصميم والتطوير بواسطة <a
+                                    href="https://www.codlop.com/" class="text-secondary text-primary-hover">Codlop</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- SCROLL TO TOP
+    ================================================== -->
+    <a href="#" class="scroll-to-top"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
+
+    <!-- all js include start -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/core.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/reservation.js"></script>
+
+
+</body>
+
+</html>
